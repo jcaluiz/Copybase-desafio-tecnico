@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Copybase-desafio-tecnico
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -39,3 +40,6 @@ npm run test:unit
 ```sh
 npm run lint
 ```
+=======
+# Copybase-desafio-tecnico
+>>>>>>> 225691c7b2f07a2b2e2661feb78973f6159d7132
