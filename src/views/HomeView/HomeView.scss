@@ -42,6 +42,9 @@
 }
 
 @media (max-width: 800px) {
+    * {
+        color: black;
+    }
     .search-input {
         width: 50vw;
         height: 9vh;
