@@ -30,7 +30,8 @@
     background-color: $color3;
     top: 0;
     width: 30vw;
-    height: 40vw;
+    height: 63vh;
+    box-shadow: 2px 2px 8px white;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,13 +58,14 @@
     }
 }
 
-ul {
+.list-features-pokemon-container {
     display: flex;
     flex-direction: column;
     padding-left: 3vw;
     background-color: $color2;
-    width: 17vw;
-    box-shadow: 1px 1px 4px black;
+    box-shadow: 1px 1px 4px white;
+    width: 25vw;
+    height: 27vh;
 }
 
 li {
@@ -77,6 +79,11 @@ span {
     width: 45%;
 }
 
+@media (max-width: 1100px) {
+    .list-features-pokemon-container {
+        height: 35vh;
+    }
+}
 
 @media (max-width: 800px) {
     .search-input {

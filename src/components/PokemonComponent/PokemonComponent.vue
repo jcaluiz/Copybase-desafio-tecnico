@@ -4,7 +4,7 @@
       <img :src="imagePokemon" :alt="`Imagem de ${namePokemon}`" />
     </div>
     <h3>{{ namePokemon }}</h3>
-    <ul v-if="morePokemonInformation">
+    <ul v-if="morePokemonInformation" class="list-features-pokemon-container">
       <li v-for="(eachFeature, index) in feature" :key="index">
         <span>{{ eachFeature.nameFeature }}</span>
         <span>{{ eachFeature.value }}</span>
