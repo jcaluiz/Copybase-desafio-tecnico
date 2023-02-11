@@ -95,16 +95,42 @@ span {
     .pokemon-container {
         width: 18vw;
     }
+    .pokemon-container-clicked {
+        width: 50vw;
+        height: 100vh;
+    }
+    .img-pokemon-container-clicked {
+        height: 50vh;
+    }
+    .list-features-pokemon-container {
+        height: 40vh;
+        margin-top: 2vh;
+        padding-top: 2vh;
+    }
 }
 
 @media (max-width: 650px) {
     .pokemon-container {
         width: 40vw;
     }
+    .list-features-pokemon-container {
+        width: 35vw;
+    }
 }
 
 @media (max-width: 400px) {
     .pokemon-container {
         width: 100vw;
+    }
+    .img-pokemon-container-clicked {
+        height: 30vh;
+    }
+    .list-features-pokemon-container {
+        width: 65vw;
+        padding-left: 10vw;
+    }
+    .pokemon-container-clicked {
+        height: 80vh;
+        width: 35vh;
     }
 }
