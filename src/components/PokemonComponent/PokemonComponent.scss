@@ -1,0 +1,18 @@
+@import "@/assets/scss/index.scss";
+
+.pokemon-container {
+    border: 1px solid black;
+    height: 25vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 8vw;
+}
+
+.pokemon-container:hover {
+    height: 26vh;
+    width: 9vw;
+    cursor: pointer;
+    background-color: $backgroundColorBody;
+}
