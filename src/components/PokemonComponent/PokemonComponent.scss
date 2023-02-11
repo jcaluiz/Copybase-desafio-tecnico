@@ -76,3 +76,28 @@ span {
     display: inline-block;
     width: 45%;
 }
+
+
+@media (max-width: 800px) {
+    .search-input {
+        width: 80vw;
+    }
+    #pokemons-home-container {
+        width: 80vw;
+    }
+    .pokemon-container {
+        width: 18vw;
+    }
+}
+
+@media (max-width: 650px) {
+    .pokemon-container {
+        width: 40vw;
+    }
+}
+
+@media (max-width: 400px) {
+    .pokemon-container {
+        width: 100vw;
+    }
+}

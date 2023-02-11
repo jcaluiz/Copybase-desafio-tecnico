@@ -1,3 +1,5 @@
+@import "@/assets/scss/index.scss";
+
 #home-container {
     height: auto;
     width: 100vw;
@@ -8,8 +10,7 @@
 }
 
 .search-input {
-    height: 5vh;
-    width: 20vw;
+    @include inputSearch
 }
 
 #pokemons-home-container {
@@ -36,5 +37,12 @@
     .pokemon-container, h1, input {
         opacity: 0.05;
         pointer-events: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .search-input {
+        width: 50vw;
+        height: 9vh;
     }
 }
