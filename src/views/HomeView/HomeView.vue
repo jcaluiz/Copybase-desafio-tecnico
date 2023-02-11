@@ -1,7 +1,12 @@
 <template>
-  <main id="home-container">
+  <main :id="idMain">
     <h1>Pokemon</h1>
-    <input type="text" v-model="value" />
+    <input
+      type="text"
+      v-model="value"
+      class="search-input"
+      placeholder="Pesquise pelo nome"
+    />
     <section id="pokemons-home-container">
       <PokemonComponent
         v-for="(pokemon, index) in getPokemons"
@@ -9,6 +14,8 @@
         :namePokemon="pokemon.name"
         :imagePokemon="pokemon.image"
         :feature="pokemon.feature"
+        :moreInformation="morePokemonInformation"
+        @clicked="clicked"
       />
     </section>
   </main>
@@ -25,6 +32,9 @@ export default {
       getPokemons: [],
       staticPokemons: [],
       value: "",
+      morePokemonInformation: false,
+      idMain: "home-container",
+      timeClicked: 0,
     };
   },
   components: {
@@ -63,6 +73,14 @@ export default {
         })
         .catch((error) => console.log(error));
     },
+    clicked() {
+      if (this.timeClicked === 0) {
+        this.timeClicked = 1;
+        return (this.idMain = "home-container-dark");
+      }
+      this.timeClicked = 0;
+      this.idMain = "home-container";
+    },
   },
   mounted() {
     this.fetchPokemonsInformations();
@@ -75,4 +93,4 @@ export default {
 };
 </script>
 
-<style src="./HomeView.scss" lang="scss" scoped></style>
+<style src="./HomeView.scss" lang="scss"></style>

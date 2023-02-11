@@ -7,12 +7,72 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 8vw;
+    width: 12vw;
 }
 
 .pokemon-container:hover {
-    height: 26vh;
-    width: 9vw;
     cursor: pointer;
     background-color: $backgroundColorBody;
+}
+
+@keyframes slidein {
+    from {
+      margin-right: 100%;
+    }
+  
+    to {
+      margin-right: 0%;
+    }
+  }
+
+.pokemon-container-clicked {
+    position: absolute;
+    background-color: $color3;
+    top: 0;
+    width: 30vw;
+    height: 40vw;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-shadow: 1px 1px 4px black;
+    font-size: 15px;
+
+    h3 {
+        font-size: 22px;
+    }
+
+    .img-pokemon-container-clicked {
+        background-image: url("../../images/paisagem-pokemon.jpg");
+        background-size: cover;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        img {
+            width: 20vw;
+            animation-name: slidein;
+            animation-duration: 2s;
+        }
+    }
+}
+
+ul {
+    display: flex;
+    flex-direction: column;
+    padding-left: 3vw;
+    background-color: $color2;
+    width: 17vw;
+    box-shadow: 1px 1px 4px black;
+}
+
+li {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+span {
+    display: inline-block;
+    width: 45%;
 }
