@@ -32,41 +32,44 @@ export default {
   name: "HomeView",
   data() {
     return {
-      getPokemons: [],
-      staticPokemons: [],
-      value: "",
-      morePokemonInformation: false,
-      idMain: "home-container",
-      timeClicked: 0,
+      getPokemons: [], // Estado que renderiza os pokemons
+      staticPokemons: [], // Estado estático de pokemons
+      value: "", // É o estado que recebe o evento onChange do input
+      morePokemonInformation: false, // Estado que gerencia a renderização das características
+      idMain: "home-container", // Muda o nome da classe para criar um efeito contraste ao clicar num card de pokemon
+      timeClicked: 0, // Estado que auxilia no efeito de contraste
     };
   },
   components: {
-    PokemonComponent,
-    HeaderComponent,
-    FooterComponent,
+    PokemonComponent, // Componente que cria os cards dos pokemons
+    HeaderComponent, // Componente de cabeçalho da aplicação
+    FooterComponent, // Componente de rodapé da aplicação
   },
   methods: {
     formatPokemonsObjectInArray(pokemonList) {
-      const backDefault = "back_default";
-      pokemonList.map(({ name, url }) =>
-        axios(url)
-          .then((response) => {
-            const { sprites, stats } = response.data;
-            const pokemons = [
-              ...this.getPokemons,
-              {
-                name,
-                image: sprites[backDefault],
-                feature: stats.map((item) => ({
-                  nameFeature: item.stat.name,
-                  value: item["base_stat"],
-                })),
-              },
-            ];
-            this.getPokemons = pokemons;
-            this.staticPokemons = pokemons;
-          })
-          .catch((error) => console.log(error))
+      // Recebe a primeira requisição do primeiro link no parâmetro
+      pokemonList.map(
+        (
+          { name, url } // desestrutura o objeto que recebe nome e url
+        ) =>
+          axios(url) // faz a requisição da url relacionada a cada pokemon
+            .then((response) => {
+              const { sprites, stats } = response.data; // Desestrutura dois objetos da requisição
+              const pokemons = [
+                ...this.getPokemons, // Desestrutura o array
+                {
+                  name,
+                  image: sprites["back_default"],
+                  feature: stats.map((item) => ({
+                    nameFeature: item.stat.name,
+                    value: item["base_stat"],
+                  })), // Cria um objeto personalizado para ser mais performático na renderização
+                },
+              ];
+              this.getPokemons = pokemons; // Recebe o array de objeto no estado que renderiza os cards
+              this.staticPokemons = pokemons; // Recebe o array de objeto no estado estático
+            })
+            .catch((error) => console.log(error)) // Recebe o erro caso aconteça um
       );
     },
     fetchPokemonsInformations() {
@@ -74,26 +77,28 @@ export default {
         .get("https://pokeapi.co/api/v2/pokemon/")
         .then((response) => {
           const { results } = response.data;
-          this.formatPokemonsObjectInArray(results);
+          this.formatPokemonsObjectInArray(results); // Faz a primeira requisição da url para ser enviado para o método acima
         })
-        .catch((error) => console.log(error));
+        .catch((error) => console.log(error)); // Recebe o erro caso aconteça um
     },
     clicked() {
+      // É o emit para quando for feito o clique na outra página, ter a possibilidade de usar no componente pai
       if (this.timeClicked === 0) {
-        this.timeClicked = 1;
-        return (this.idMain = "home-container-dark");
+        // Quando renderizado, inicia esse estado com 0 para ser possível trocar a classe
+        this.timeClicked = 1; // Passa para o estado o 1 para que no próximo clique não cair nessa condicional
+        return (this.idMain = "home-container-dark"); // Retorna para que a função encerre nessa linha e não continua na função
       }
-      this.timeClicked = 0;
-      this.idMain = "home-container";
+      this.timeClicked = 0; // Passa para o estado o 0 para que no próximo clique cair nessa condicional
+      this.idMain = "home-container"; // Passa para a classe o seu nome original
     },
   },
   mounted() {
-    this.fetchPokemonsInformations();
+    this.fetchPokemonsInformations(); // Faz a requisição a API quando a página for montada
   },
   beforeUpdate() {
-    this.getPokemons = this.staticPokemons.filter(({ name }) =>
-      name.includes(this.value)
-    );
+    this.getPokemons = this.staticPokemons.filter(
+      ({ name }) => name.includes(this.value) // Quando for digitado no input, seu valor faz um filtro nas listas
+    ); // getPokemons é o estado que renderiza os cards e ele recebe o filtro dos pokemons que estão no estado estático
   },
 };
 </script>
