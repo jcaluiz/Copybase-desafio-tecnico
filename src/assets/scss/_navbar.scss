@@ -1,0 +1,20 @@
+@import "./colors";
+
+@mixin navbar {
+    @media (min-width: 768px) {
+        width: 100vw;
+        height: 10vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: $backgroundColorNavbar;
+        h1 {
+            font-size: 5vh;
+            text-shadow: $textShadow;
+        };
+        p {
+            text-shadow: $textShadow;
+        };
+    }
+}
+

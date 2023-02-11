@@ -1,10 +1,10 @@
 #home-container {
-    height: 100vh;
+    height: auto;
     width: 100vw;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 10vh;
+    gap: 5vh;
 }
 
 .search-input {
@@ -13,17 +13,17 @@
 }
 
 #pokemons-home-container {
-    // border: 1px solid black;
     width: 60vw;
     display: flex;
     flex-wrap: wrap;
     gap: 3vw;
     justify-content: center;
     align-items: center;
+    padding: 25px;
 }
 
 #home-container-dark {
-    height: 200vh;
+    height: auto;
     width: 100vw;
     display: flex;
     flex-direction: column;

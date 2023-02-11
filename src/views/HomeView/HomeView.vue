@@ -1,6 +1,6 @@
 <template>
   <main :id="idMain">
-    <h1>Pokemon</h1>
+    <HeaderComponent />
     <input
       type="text"
       v-model="value"
@@ -18,12 +18,15 @@
         @clicked="clicked"
       />
     </section>
+    <FooterComponent />
   </main>
 </template>
 
 <script>
 import axios from "axios";
 import PokemonComponent from "../../components/PokemonComponent/PokemonComponent.vue";
+import HeaderComponent from "../../components/Header/HeaderComponent.vue";
+import FooterComponent from "../../components/Footer/FooterComponent.vue";
 
 export default {
   name: "HomeView",
@@ -39,6 +42,8 @@ export default {
   },
   components: {
     PokemonComponent,
+    HeaderComponent,
+    FooterComponent,
   },
   methods: {
     formatPokemonsObjectInArray(pokemonList) {
