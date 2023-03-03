@@ -7,7 +7,10 @@
     flex-direction: column;
     align-items: center;
     gap: 5vh;
-    background-color: $backgroundColorBody;
+    // background-color: $backgroundColorBody;
+    background-image: url('../../images/pokemon-unite-aniversario.webp');
+    background-size: contain;
+    opacity: 0.85;
 }
 
 .search-input {

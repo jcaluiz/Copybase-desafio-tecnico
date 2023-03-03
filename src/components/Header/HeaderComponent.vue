@@ -1,6 +1,7 @@
 <template>
   <header id="header-container">
-    <h1>Pokemon</h1>
+    <!-- <h1>Pokemon</h1> -->
+    <img src="../../images/Pokemon-logo.png" id="pokemon-logo" />
   </header>
 </template>
 

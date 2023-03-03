@@ -3,3 +3,8 @@
 #header-container {
     @include navbar;
 }
+
+#pokemon-logo {
+    height: 25vh;
+    padding-top: 3vh;
+}

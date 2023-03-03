@@ -2,11 +2,11 @@
 
 @mixin navbar {
     width: 100vw;
-    height: 10vh;
+    height: 20vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: $backgroundColorNavbar;
+    // background-color: $backgroundColorNavbar;
 
     h1 {
         font-size: 5vh;
